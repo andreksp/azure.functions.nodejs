@@ -25,3 +25,22 @@ $ACR_NAME='azurefunctionsnodejs'
 # Create ACR
 
 az acr create --resource-group azurefunctionsnodejsrg --name $ACR_NAME --sku Standard
+
+az acr login --name  $ACR_NAME
+
+$ACR_LOGINSERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
+echo $ACR_LOGINSERVER
+
+docker tag webappimage $ACR_LOGINSERVER/azurefunctionsnodejs
+docker image ls $ACR_LOGINSERVER/azurefunctionsnodejs
+docker image ls
+
+# Push docker
+docker push $ACR_LOGINSERVER/azurefunctionsnodejs
+
+az acr repository list --name $ACR_NAME --output table
+az acr repository show-tags --name $ACR_NAME --repository azurefunctionsnodejs --output table
+
+az acr build --image "azurefunctionsnodejs-acr-task" --registry $ACR_NAME .
+
+az acr repository show_tags --name $ACR_NAME --repository azurefunctionsnodejs --output table
