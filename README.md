@@ -14,6 +14,7 @@ docker image rm <image> - to delete container
 docker compose config - validate config
 docker-compose up -d
 
+
 # Login
 az login 
 az account set --subscription "Assinatura do Azure 1"

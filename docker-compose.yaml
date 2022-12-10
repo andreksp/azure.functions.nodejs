@@ -1,5 +1,5 @@
 services:
   backend:
-    container_name: azurefunctionsnodejsrg
+    container_name: azurefunctionsnodejs
     build: .    
 
