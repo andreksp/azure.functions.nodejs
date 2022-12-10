@@ -23,5 +23,5 @@ jobs:
 
       - name: Push Docker image to Azure Container Registry
         run: |
-            docker tag azurefunctionsnodej_backend:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/azurefunctionsnodej:${{ github.sha }}
-            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/azurefunctionsnodej:${{ github.sha }}            
+            docker tag azurefunctionsnodejs_backend:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/azurefunctionsnodejs:${{ github.sha }}
+            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/azurefunctionsnodejs:${{ github.sha }}            
